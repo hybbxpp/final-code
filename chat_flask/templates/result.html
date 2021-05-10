@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>RESULT</title>
+	<style>
+	body {
+		background-image: url("../static/images/1.jpg");
+	}
+
+	.header-title{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #6F83FF;
+    height: 3.3rem;
+    width: 100%;
+    text-align: center;
+    line-height: 2rem;
+    font-size: 2rem;
+    color: #fff;
+    z-index: 3;
+	}
+
+.logout-robot {
+        width:70px;
+        height:33px;
+        text-align:center;
+        line-height:2rem;
+        font:10px Arial,sans-serif bold;
+        font-style:normal;
+        text-decoration:none;
+        zoom:1;
+        outline:none;
+        font-size-adjust:none;
+        font-stretch:normal;
+        border-radius:50px;
+        box-shadow:0px 1px 2px rgba(0,0,0,0.2);
+        text-shadow:0px 1px 1px rgba(0,0,0,0.3);
+        color:#fefee9;
+        border:0.2px solid #2299ff;
+        background-repeat:repeat;
+        background-size:auto;
+        background-origin:padding-box;
+        background-clip:padding-box;
+        background-color:#3399ff;
+        background: linear-gradient(to bottom, #eeeff9 0%,#3399ff 100%);
+    }
+
+    .logout-robot:hover {
+        background: #268DFF;
+    }
+
+	.inline{
+		display: inline-block;
+	}
+
+	.input{
+		left:5px;
+		width: 1000px;
+    	height: 44px;
+    	margin-bottom: 10px;
+    	outline: none;
+    	padding: 10px;
+    	font-size: 13px;
+    	color: #fff;
+    	background-color: rgb(45,45,63);
+    	border: 1px solid #312E3D;
+    	border-radius: 10px;
+	}
+	.input:hover{
+    	box-shadow: 0 0 5px black;
+	}
+
+	.button{
+	left:200px;
+    text-decoration:none;
+	background:#2f435e;
+	color:#f2f2f2;
+
+	padding: 10px 30px 10px 30px;
+	font-size:16px;
+	font-family: Arial;
+	font-weight:bold;
+	border-radius:3px;
+
+	-webkit-transition:all linear 0.30s;
+	-moz-transition:all linear 0.30s;
+	transition:all linear 0.30s;
+	}
+	<!--https://blog.csdn.net/weixin_45716667/article/details/108828766-->
+	</style>
+</head>
+<body>
+<header class="header-title"><b>搜索系统</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="/user"><button type="button" class="logout-robot"><b>主页</b></button></a>&ensp;<a href="/robot"><button type="button" class="logout-robot"><b>问答</b></button></a>&ensp;<a href="/logout"><button type="button" class="logout-robot"><b>登出</b></button></a></header>
+<br><br><br><br>
+<center>
+		<div id="message">
+			{% for message in get_flashed_messages(with_categories=True) %}
+				<div class="alert alert-{{ message[0] }}" >
+    				{{ message[1] }}
+				</div>
+			{% endfor %}
+		</div>
+</center>
+<br><br><br><br><br><br><br><br><br><br><br>
+<center>
+<form method="post">
+		<div class="inline">
+
+			<input class="input" type="text" name="drug" placeholder="请输入您想要搜索的药品名称" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入您想要搜索的药品名称';}">
+			<button class="button" type="submit">搜索</button>
+
+		</div>
+</form>
+</center>
+<script>
+	setTimeout(function(){document.getElementById("message").style.display="none";},2000);
+</script>
+</body>
+</html>

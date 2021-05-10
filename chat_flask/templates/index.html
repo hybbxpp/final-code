@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>	
+<head>
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta name="keywords" content="Flat Dark Web Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
+<link href="../static/css/style.css" rel='stylesheet' type='text/css' />
+<!--webfonts-->
+<link href='http://fonts.useso.com/css?family=PT+Sans:400,700,400italic,700italic|Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+<!--//webfonts-->
+<script src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+ <h1>欢迎使用医疗问答系统</h1>
+	<center>
+		<div id="message">
+			{% for message in get_flashed_messages(with_categories=True) %}
+				<div class="alert alert-{{ message[0] }}" >
+    				{{ message[1] }}
+				</div>
+			{% endfor %}
+		</div>
+	</center>
+<div class="login-form">
+		<div class="head-info">
+			<label class="lbl-1"> </label>
+			<label class="lbl-2"> </label>
+			<label class="lbl-3"> </label>
+		</div>
+
+		<div class="clear"> </div>
+		<form method="post">
+			<input type="hidden" name="csrf_token"><br>
+				<input type="text" class="text" name="username" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}" >
+				<div class="key">
+					<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+				</div>
+				<div class="signin">
+					<input type="submit" value="登录">
+					<a href="/register">还没有账户？点击这里注册</a>
+				</div>
+		</form>
+</div>
+<script>
+	setTimeout(function(){document.getElementById("message").style.display="none";},1500);
+</script>
+</body>
+</html>

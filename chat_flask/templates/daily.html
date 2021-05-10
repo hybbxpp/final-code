@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>DAILY</title>
+    <link href="/static/css/global.css" rel="stylesheet">
+    <link href="/static/css/styles.css" rel="stylesheet">
+    <style>
+    .logout-robot {
+        width:70px;
+        height:40px;
+        text-align:center;
+        line-height:100%;
+        font:10px Arial,sans-serif bold;
+        font-style:normal;
+        text-decoration:none;
+        zoom:1;
+        outline:none;
+        font-size-adjust:none;
+        font-stretch:normal;
+        border-radius:50px;
+        box-shadow:0px 1px 2px rgba(0,0,0,0.2);
+        text-shadow:0px 1px 1px rgba(0,0,0,0.3);
+        color:#fefee9;
+        border:0.2px solid #2299ff;
+        background-repeat:repeat;
+        background-size:auto;
+        background-origin:padding-box;
+        background-clip:padding-box;
+        background-color:#3399ff;
+        background: linear-gradient(to bottom, #eeeff9 0%,#3399ff 100%);
+    }
+
+    .logout-robot:hover {
+        background: #268DFF;
+    }
+
+    .div-inline{
+        display:inline-block
+    }
+
+    .main{
+        background-image: url("../static/images/user.jfif");
+        width:100%;
+        height:100%;
+        background-size:cover;
+        -webkit-filter:blur(15px);
+        -moz-filter:blur(15px);
+        -o-filter:blur(15px);
+        -ms-filter:blur(15px);
+        filter:blur(15px);
+        position:absolute;
+        left:0;
+        top:0;
+    }
+    </style>
+</head>
+<body class="chat-bg">
+<div class="main"></div>
+<header class="header-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{user}}的搜索历史&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="/user"><button type="button" class="logout-robot">主页</button></a>&ensp;<a href="/robot"><button type="button" class="logout-robot">问答</button></a>&ensp;<a href="/search"><button type="button" class="logout-robot">搜索</button></a>&ensp;<a href="/logout"><button type="button" class="logout-robot">登出</button></a></header>
+<br><br><br><br><br>
+<div style="position:absolute">
+<div class="div-inline">
+<font size="5"><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;药品名称</b></font><br>
+{% for all in daily %}
+    <div style="width:200%; border:1px solid black;"></div>
+        <tr>
+			<td><font size="4"><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{all.drug}}</b></font><br></td><br>
+        </tr>
+{% endfor %}
+</div>
+<div class="div-inline">
+<font size="5"><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;问题</b></font><br>
+{% for all in daily %}
+        <div style="width:200%; border:1px solid black;"></div>
+        <tr>
+			<td><font size="4"><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{all.question}}</b></font><br></td><br>
+        </tr>
+{% endfor %}
+</div>
+<div class="div-inline">
+<font size="5"><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;方式</b></font><br>
+{% for all in daily %}
+        <div style="width:200%; border:1px solid black;"></div>
+        <tr>
+			<td><font size="4"><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{all.way}}</b></font><br></td><br>
+        </tr>
+{% endfor %}
+</div>
+<div class="div-inline">
+<font size="5"><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;时间</b></font><br>
+{% for all in daily %}
+        <div style="width:200%; border:1px solid black;"></div>
+        <tr>
+			<td><font size="4"><b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{all.time}}</b></font><br></td><br>
+        </tr>
+{% endfor %}
+</div>
+
+</div>
+
+<script src="/static/js/jquery-1.8.3.min.js"></script>
+<script src="/static/js/chat.js"></script>
+
+
+</body>
+</html>
